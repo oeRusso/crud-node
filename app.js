@@ -6,17 +6,18 @@ let conexion = mysql.createConnection({
   password: ''
 })
 
-conexion.connect(error => {
-  if (error) {
-    throw error
+conexion.connect(err => {
+  if (err) {
+    throw err
   } else {
     console.log('CONEXION EXITOSA')
   }
 })
 
+// MOSTRAR
 conexion.query("SELECT * FROM	usuarios", (err, filas) => {
-    if (error) {
-        throw error;
+    if (err) {
+        throw err;
     }else{
         filas.forEach( fila => {
             console.log(filas);
@@ -24,4 +25,7 @@ conexion.query("SELECT * FROM	usuarios", (err, filas) => {
     }
 })
 
+// INSERTAR
+
+conexion.query("INSERT INTO usuarios (nombre,email,contraseña) VALUES ("Normar","Chavez","jeje123")";
 conexion.end();
